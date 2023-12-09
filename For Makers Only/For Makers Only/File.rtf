@@ -1,0 +1,419 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red108\green121\blue134;\red31\green31\blue36;\red255\green255\blue255;
+\red252\green95\blue163;\red93\green216\blue255;\red65\green161\blue192;\red208\green168\blue255;\red161\green103\blue230;
+\red161\green103\blue230;\red208\green191\blue105;\red252\green106\blue93;\red158\green241\blue221;\red103\green183\blue164;
+\red208\green168\blue255;\red103\green183\blue164;}
+{\*\expandedcolortbl;;\csgenericrgb\c42394\c47462\c52518;\csgenericrgb\c12054\c12284\c14131;\csgenericrgb\c100000\c100000\c100000\c85000;
+\csgenericrgb\c98839\c37355\c63833;\csgenericrgb\c36295\c84643\c99897;\csgenericrgb\c25490\c63137\c75294;\csgenericrgb\c81681\c65692\c99927;\csgenericrgb\c63137\c40392\c90196;
+\csgenericrgb\c63232\c40219\c90115;\csgenericrgb\c81498\c74939\c41233;\csgenericrgb\c98912\c41558\c36568;\csgenericrgb\c62145\c94386\c86819;\csgenericrgb\c40538\c71705\c64209;
+\csgenericrgb\c81569\c65882\c100000;\csgenericrgb\c40392\c71765\c64314;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab395
+\pard\tx395\pardeftab395\partightenfactor0
+
+\f0\fs16 \cf2 \cb3 //\cf4 \
+\cf2 //  ContentView.swift\cf4 \
+\cf2 //  For Makers Only\cf4 \
+\cf2 //\cf4 \
+\cf2 //  Created by xcodeday on 12/8/23.\cf4 \
+\cf2 //\cf4 \
+\
+
+\f1\b \cf5 import
+\f0\b0 \cf4  SwiftUI\
+\
+
+\f1\b \cf5 extension
+\f0\b0 \cf4  \cf6 Color\cf4  \{\
+    
+\f1\b \cf5 init
+\f0\b0 \cf4 (\cf7 hex\cf4 :\cf8 UInt\cf4 ) \{\
+        
+\f1\b \cf5 self
+\f0\b0 \cf4 .\cf9 init\cf4 (\
+            .\cf10 sRGB\cf4 ,\
+            \cf9 red\cf4 : \cf8 Double\cf4 ((hex & \cf11 0xFF0000\cf4 ) >> \cf11 16\cf4 ) / \cf11 255.0\cf4 , \cf9 green\cf4 : \cf8 Double\cf4 ((hex & \cf11 0xFF0000\cf4 ) >> \cf11 8\cf4 ) / \cf11 255.0\cf4 , \cf9 blue\cf4 : \cf8 Double\cf4 (hex & \cf11 0xFF0000\cf4 ) / \cf11 255.0\cf4 , \cf9 opacity\cf4 : \cf11 1.0\cf4 \
+        )\
+    \}\
+\}\
+\
+\
+\
+\
+\
+
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 havanaWax\cf4  = \cf12 "https://www.candlemakingsupplies.net/shop/vessel/14-oz-havana-champagne-candle-jar"\cf4 \
+    \
+
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 monticianoWax\cf4  = \cf12 "https://www.candlemakingsupplies.net/shop/vessel/monticiano-clear-candle-vessel"\cf4 \
+    \
+
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 FontNameManager\cf4  \{\
+    
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 Montserrat\cf4  \{\
+        
+\f1\b \cf5 static
+\f0\b0 \cf4  
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 light\cf4  = \cf12 "Montserrat-Light"\cf4 \
+        
+\f1\b \cf5 static
+\f0\b0 \cf4  
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 regular\cf4  = \cf12 "Montserrat-Regular"\cf4 \
+        
+\f1\b \cf5 static
+\f0\b0 \cf4  
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 bold\cf4  = \cf12 "Montserrat-ExtraBold"\cf4 \
+    \}\
+\}\
+\
+
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 headerfont\cf4  = \cf8 Font\cf4 .\cf9 custom\cf4 (\cf13 FontNameManager\cf4 .\cf13 Montserrat\cf4 .\cf14 bold\cf4 , \cf9 size\cf4 : \cf15 UIFont\cf4 .\cf9 preferredFont\cf4 (\cf9 forTextStyle\cf4 :.\cf10 largeTitle\cf4 ).\cf10 pointSize\cf4 )\
+\
+
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 bodyFont\cf4  = \cf8 Font\cf4 .\cf9 custom\cf4 (\cf13 FontNameManager\cf4 .\cf13 Montserrat\cf4 .\cf14 regular\cf4 , \cf9 size\cf4 : \cf15 UIFont\cf4 .\cf9 preferredFont\cf4 (\cf9 forTextStyle\cf4 :.\cf10 largeTitle\cf4 ).\cf10 pointSize\cf4 )\
+\
+
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 lightFont\cf4  = \cf8 Font\cf4 .\cf9 custom\cf4 (\cf13 FontNameManager\cf4 .\cf13 Montserrat\cf4 .\cf14 light\cf4 , \cf9 size\cf4 : \cf15 UIFont\cf4 .\cf9 preferredFont\cf4 (\cf9 forTextStyle\cf4 :.\cf10 largeTitle\cf4 ).\cf10 pointSize\cf4 )\
+\
+\cf2 //@State private var text: String = ""\cf4 \
+\cf2 //@State private var selection = "California"\cf4 \
+\
+
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 ContentView\cf4 : \cf15 View\cf4  \{\
+    
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+        \cf8 NavigationView\cf4  \{\
+            \cf8 ZStack\cf4  \{\
+                \cf8 Color\cf4 (\cf16 hex\cf4 : \cf11 0xEDE7DF\cf4 )\
+                    .\cf9 ignoresSafeArea\cf4 ()\
+                \cf8 VStack\cf4  \{\
+                    \cf8 Text\cf4 (\cf12 "TAYLOR CANDLE & CO"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 largeTitle\cf4 )\
+                        .\cf9 font\cf4 (\cf14 lightFont\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 (\cf9 red\cf4 : \cf11 0.732\cf4 , \cf9 green\cf4 : \cf11 0.714\cf4 , \cf9 blue\cf4 : \cf11 0.693\cf4 ))\
+                        \
+                    \cf8 Text\cf4 (\cf12 "FOR"\cf4 )\
+                        .\cf9 font\cf4 (\cf14 bodyFont\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 (\cf9 red\cf4 : \cf11 0.264\cf4 , \cf9 green\cf4 : \cf11 0.255\cf4 , \cf9 blue\cf4 : \cf11 0.245\cf4 ))\
+                    \cf8 Text\cf4 (\cf12 "MAKERS"\cf4 )\
+                        .\cf9 font\cf4 (\cf14 bodyFont\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 (\cf9 red\cf4 : \cf11 0.264\cf4 , \cf9 green\cf4 : \cf11 0.255\cf4 , \cf9 blue\cf4 : \cf11 0.245\cf4 ))\
+                    \cf8 Text\cf4 (\cf12 "ONLY"\cf4 )\
+                        .\cf9 font\cf4 (\cf14 bodyFont\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 (\cf9 red\cf4 : \cf11 0.264\cf4 , \cf9 green\cf4 : \cf11 0.255\cf4 , \cf9 blue\cf4 : \cf11 0.245\cf4 ))\
+                    \cf8 Text\cf4 (\cf12 "WHEN LIFE GIVES YOU WAX, WICK IT"\cf4 )\
+                        .\cf9 font\cf4 (\cf14 lightFont\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 (\cf9 red\cf4 : \cf11 0.732\cf4 , \cf9 green\cf4 : \cf11 0.714\cf4 , \cf9 blue\cf4 : \cf11 0.693\cf4 ))\
+                        .\cf9 multilineTextAlignment\cf4 (.\cf10 center\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                        \cf8 NavigationLink\cf4 (\cf9 destination\cf4 : \cf13 StateView\cf4 ())\{\
+                            \cf8 Text\cf4 (\cf12 "Next"\cf4 )\
+                                .\cf9 padding\cf4 ()\
+                                .\cf9 foregroundColor\cf4 (.\cf10 black\cf4 )\
+                                .\cf9 background\cf4 (\cf8 Color\cf4 .\cf10 green\cf4 )\
+                                .\cf9 cornerRadius\cf4 (\cf11 8\cf4 )\
+                        \}\
+                    \
+                \}\
+                \
+                .\cf9 padding\cf4 ()\
+            \}\
+        \}\
+    \}\
+    
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 StateView\cf4 : \cf15 View\cf4  \{\
+        
+\f1\b \cf5 let
+\f0\b0 \cf4  \cf7 stateOptions\cf4  = [\cf12 "Select State"\cf4 , \cf12 "California"\cf4 , \cf12 "Michigan"\cf4 , \cf12 "Nevada"\cf4 , \cf12 "New York"\cf4 ]\
+        \
+        \cf8 @State\cf4  
+\f1\b \cf5 private
+\f0\b0 \cf4  
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 selectedStateIndex\cf4  = \cf11 0\cf4 \
+        \
+        
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+            \cf8 VStack\cf4 \{\
+                \cf8 Text\cf4 (\cf12 "Products by State"\cf4 )\
+                    .\cf9 font\cf4 (.\cf10 title\cf4 )\
+                    .\cf9 padding\cf4 ()\
+                \cf8 Picker\cf4 (\cf12 "Select a state"\cf4 , \cf9 selection\cf4 : \cf14 $selectedStateIndex\cf4 ) \{\
+                    \cf8 ForEach\cf4 (\cf11 0\cf4 ..<\cf14 stateOptions\cf4 .\cf10 count\cf4 , \cf9 id\cf4 : \\.
+\f1\b \cf5 self
+\f0\b0 \cf4 ) \{ index 
+\f1\b \cf5 in
+\f0\b0 \cf4 \
+                        \cf8 Text\cf4 (
+\f1\b \cf5 self
+\f0\b0 \cf4 .\cf14 stateOptions\cf4 [index])\
+                    \}\
+                \}\
+                .\cf9 pickerStyle\cf4 (\cf8 MenuPickerStyle\cf4 ())\
+                \
+                
+\f1\b \cf5 if
+\f0\b0 \cf4  \cf14 selectedStateIndex\cf4  != \cf11 0\cf4  \{\
+                    \cf8 NavigationLink\cf4 (\cf9 destination\cf4 : \cf16 destinationViewForSelectedState\cf4 ()) \{\
+                        \cf8 Text\cf4 (\cf12 "Go to product page"\cf4 )\
+                            .\cf9 foregroundColor\cf4 (.\cf10 white\cf4 )\
+                            .\cf9 padding\cf4 ()\
+                            .\cf9 background\cf4 (\cf8 Color\cf4 .\cf10 green\cf4 )\
+                            .\cf9 cornerRadius\cf4 (\cf11 8\cf4 )\
+                    \}\
+                    .\cf9 padding\cf4 (.\cf10 top\cf4 , \cf11 20\cf4 )\
+                \} 
+\f1\b \cf5 else
+\f0\b0 \cf4  \{\
+                    \cf8 Text\cf4 (\cf12 "Please select a state first."\cf4 )\
+                        .\cf9 foregroundColor\cf4 (.\cf10 red\cf4 )\
+                        .\cf9 padding\cf4 (.\cf10 top\cf4 , \cf11 20\cf4 )\
+                \}\
+            \}\
+        \}\
+        
+\f1\b \cf5 func
+\f0\b0 \cf4  \cf7 destinationViewForSelectedState\cf4 () -> 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+            
+\f1\b \cf5 switch
+\f0\b0 \cf4  \cf14 selectedStateIndex\cf4  \{\
+            
+\f1\b \cf5 case
+\f0\b0 \cf4  \cf11 1\cf4 :\
+                
+\f1\b \cf5 return
+\f0\b0 \cf4  \cf8 AnyView\cf4 (\cf13 PageCalifornia\cf4 ())\
+            
+\f1\b \cf5 case
+\f0\b0 \cf4  \cf11 2\cf4 :\
+                
+\f1\b \cf5 return
+\f0\b0 \cf4  \cf8 AnyView\cf4 (\cf13 Page_Michigan\cf4 ())\
+            
+\f1\b \cf5 case
+\f0\b0 \cf4  \cf11 3\cf4 :\
+                
+\f1\b \cf5 return
+\f0\b0 \cf4  \cf8 AnyView\cf4 (\cf13 page_Nevada\cf4 ())\
+            
+\f1\b \cf5 case
+\f0\b0 \cf4  \cf11 4\cf4 :\
+                
+\f1\b \cf5 return
+\f0\b0 \cf4  \cf8 AnyView\cf4 (\cf13 page_New_York\cf4 ())\
+            
+\f1\b \cf5 default
+\f0\b0 \cf4 :\
+                
+\f1\b \cf5 return
+\f0\b0 \cf4  \cf8 AnyView\cf4 (\cf8 EmptyView\cf4 ())\
+            \}\
+        \}\
+    \}\
+        \cf2 //DESTINATIONS\cf4 \
+        \
+        \cf2 // NotesView\cf4 \
+            
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 NotesView\cf4 : \cf15 View\cf4  \{\
+                \cf8 @State\cf4  
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 text\cf4 : \cf8 String\cf4  = \cf12 ""\cf4 \
+                \
+                
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+                    \cf8 VStack\cf4  \{\
+                        \cf8 Text\cf4 (\cf12 ""\cf4 )\
+                        \
+                        \cf8 TextEditor\cf4 (\cf9 text\cf4 : \cf14 $text\cf4 )\
+                            .\cf9 frame\cf4 (\cf9 minHeight\cf4 : \cf11 100\cf4 )\
+                            .\cf9 padding\cf4 ()\
+                            .\cf9 border\cf4 (\cf8 Color\cf4 .\cf10 gray\cf4 , \cf9 width\cf4 : \cf11 1\cf4 )\
+                    \}\
+                    .\cf9 padding\cf4 ()\
+                \}\
+            \} \cf2 //end of notes\cf4 \
+           \
+    
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 PageProducts\cf4 : \cf15 View\cf4  \{\
+        
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+            \cf8 HStack\cf4 \{\
+                \cf8 VStack\cf4 (\cf9 alignment\cf4 : .\cf10 leading\cf4 ) \{\
+                    \cf8 Image\cf4 (\cf12 "monticiano_vessel"\cf4 )\
+                        .\cf9 resizable\cf4 ()\
+                        .\cf9 aspectRatio\cf4 (\cf9 contentMode\cf4 : .\cf10 fit\cf4 )\
+                        .\cf9 frame\cf4 (\cf9 width\cf4 :\cf11 150\cf4 , \cf9 height\cf4 : \cf11 150\cf4 )\
+                    \cf8 Text\cf4 (\cf12 "         9.5 OZ Vessel"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 footnote\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                    \cf8 Image\cf4 (\cf12 "image1"\cf4 )\
+                        .\cf9 resizable\cf4 ()\
+                        .\cf9 aspectRatio\cf4 (\cf9 contentMode\cf4 : .\cf10 fit\cf4 )\
+                        .\cf9 frame\cf4 (\cf9 width\cf4 :\cf11 150\cf4 , \cf9 height\cf4 : \cf11 150\cf4 )\
+                    \cf8 Text\cf4 (\cf12 "         Coconut"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 footnote\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                    \cf8 Image\cf4 (\cf12 "image1"\cf4 )\
+                        .\cf9 resizable\cf4 ()\
+                        .\cf9 aspectRatio\cf4 (\cf9 contentMode\cf4 : .\cf10 fit\cf4 )\
+                        .\cf9 frame\cf4 (\cf9 width\cf4 :\cf11 150\cf4 , \cf9 height\cf4 : \cf11 150\cf4 )\
+                    \cf8 Text\cf4 (\cf12 "         Cotton Wicks"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 footnote\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                    \
+                \}\
+                \cf8 VStack\cf4 \{\
+                    \cf8 Image\cf4 (\cf12 "havana_vessel"\cf4 )\
+                        .\cf9 resizable\cf4 ()\
+                        .\cf9 aspectRatio\cf4 (\cf9 contentMode\cf4 : .\cf10 fit\cf4 )\
+                        .\cf9 frame\cf4 (\cf9 width\cf4 :\cf11 150\cf4 , \cf9 height\cf4 : \cf11 150\cf4 )\
+                    \cf8 Text\cf4 (\cf12 "14 OZ Vessel"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 footnote\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                    \cf8 Image\cf4 (\cf12 "image1"\cf4 )\
+                        .\cf9 resizable\cf4 ()\
+                        .\cf9 aspectRatio\cf4 (\cf9 contentMode\cf4 : .\cf10 fit\cf4 )\
+                        .\cf9 frame\cf4 (\cf9 width\cf4 :\cf11 150\cf4 , \cf9 height\cf4 : \cf11 150\cf4 )\
+                    \cf8 Text\cf4 (\cf12 "     Soy"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 footnote\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                    \cf8 Image\cf4 (\cf12 "image1"\cf4 )\
+                        .\cf9 resizable\cf4 ()\
+                        .\cf9 aspectRatio\cf4 (\cf9 contentMode\cf4 : .\cf10 fit\cf4 )\
+                        .\cf9 frame\cf4 (\cf9 width\cf4 :\cf11 150\cf4 , \cf9 height\cf4 : \cf11 150\cf4 )\
+                    \cf8 Text\cf4 (\cf12 "         Wood Wicks"\cf4 )\
+                        .\cf9 font\cf4 (.\cf10 footnote\cf4 )\
+                        .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                        .\cf9 padding\cf4 (\cf11 3.0\cf4 )\
+                    \
+                \}\
+                \
+                \
+            \}\
+            .\cf9 padding\cf4 ()\
+        \}\
+    \} \cf2 // end of Page California\cf4 \
+            \
+            \
+            \cf2 // Page California\cf4 \
+            
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 PageCalifornia\cf4 : \cf15 View\cf4  \{\
+                
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+                    \cf8 VStack\cf4  \{\
+                        \cf8 Text\cf4 (\cf12 "This is page california"\cf4 )\
+                        \cf8 NavigationLink\cf4 (\cf9 destination\cf4 : \cf13 PageProducts\cf4 ())\{\
+                            \cf8 Text\cf4 (\cf12 "Products"\cf4 )\
+                                .\cf9 padding\cf4 (\cf11 7\cf4 )\
+                                .\cf9 foregroundColor\cf4 (\cf8 Color\cf4 .\cf10 white\cf4 )\
+                                .\cf9 background\cf4 (\cf8 Color\cf4 .\cf10 black\cf4 )\
+                                .\cf9 cornerRadius\cf4 (\cf11 6\cf4 )\
+                        \}\
+                    \}\
+                    \}\
+                \}\
+            \} \cf2 // end of Page California\cf4 \
+            \
+            \
+            \cf2 // Page Michigan\cf4 \
+            
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 Page_Michigan\cf4 : \cf15 View\cf4  \{\
+                
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+                    \cf8 VStack\cf4  \{\
+                        \cf8 Text\cf4 (\cf12 "This is page michigan"\cf4 )\
+                        \
+                        \
+                    \}\
+                    .\cf9 padding\cf4 ()\
+                \}\
+            \} \cf2 // end of Page Michigan\cf4 \
+            \
+            \
+            \cf2 // Page Nevada\cf4 \
+            
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 page_Nevada\cf4 : \cf15 View\cf4  \{\
+                
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+                    \cf8 VStack\cf4  \{\
+                        \cf8 Text\cf4 (\cf12 "This is page nevada"\cf4 )\
+                        \
+                        \
+                    \}\
+                    .\cf9 padding\cf4 ()\
+                \}\
+            \} \cf2 // end of Page Nevada\cf4 \
+            \
+            \
+            \cf2 // Page New York\cf4 \
+            
+\f1\b \cf5 struct
+\f0\b0 \cf4  \cf6 page_New_York\cf4 : \cf15 View\cf4  \{\
+                
+\f1\b \cf5 var
+\f0\b0 \cf4  \cf7 body\cf4 : 
+\f1\b \cf5 some
+\f0\b0 \cf4  \cf15 View\cf4  \{\
+                    \cf8 VStack\cf4  \{\
+                        \cf8 Text\cf4 (\cf12 "This is page new york"\cf4 )\
+                        \
+                        \
+                    \}\
+                    .\cf9 padding\cf4 ()\
+                \}\
+            \} \cf2 // end New York\cf4 \
+\cf9 #Preview\cf4  \{\
+    \cf13 ContentView\cf4 ()\
+\}\
+   \
+        \
+       \
+      \
+}
